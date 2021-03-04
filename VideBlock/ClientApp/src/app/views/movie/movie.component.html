@@ -1,0 +1,14 @@
+<h1 id="tableLabel">Películas</h1>
+
+<p *ngIf="!isAuthenticated">Acceso denegado</p>
+
+<div *ngIf="isAuthenticated">
+  <a *ngIf="isAdmin" [routerLink]="['/movie-create']" class="btn btn-link">Crear</a>
+  <app-table [headers]="headers"
+             [data]="movies | async"
+             [columns]="columns"
+             [buttons]="buttons"
+             >
+
+  </app-table>
+</div>

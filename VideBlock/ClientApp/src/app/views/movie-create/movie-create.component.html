@@ -1,0 +1,3 @@
+<p *ngIf="!isAuthorized">Acceso denegado</p>
+
+<app-form-movie *ngIf="isAuthorized" [movieForm]="movieForm" [callback]="callback"></app-form-movie>

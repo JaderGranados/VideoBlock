@@ -1,0 +1,32 @@
+<p *ngIf="isAuthenticated">Usuario autenticado</p>
+
+<div *ngIf="!isAuthenticated" class="container" style="padding-top:40px;">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="card mx-4">
+        <div class="card-body p-4">
+          <form [formGroup]="userForm" (ngSubmit)="onFormSubmit(userForm.value)">
+            <h1 style="text-align:center">Nuevo usuario</h1>
+
+            <div class="text-danger" *ngIf="errorMessage">{{errorMessage}}</div>
+            <div class="input-group mb-3">
+
+              <input type="text" class="form-control" placeholder="Username" formControlName="userName">
+              <app-error-message [control]="userName"></app-error-message>
+            </div>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Nombre" formControlName="name">
+            </div>
+            <div class="input-group mb-4">
+              <input type="text" class="form-control" placeholder="Apellido" formControlName="lastName">
+            </div>
+            <div class="input-group mb-3">
+              <input type="password" class="form-control" placeholder="Password" formControlName="password">
+            </div>
+            <button type="submit" class="btn btn-block btn-success">Crear</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  
